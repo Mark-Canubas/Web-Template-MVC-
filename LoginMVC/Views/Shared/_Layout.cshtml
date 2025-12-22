@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <!-- MAIN FLEX CONTAINER -->
+    <div class="d-flex max-vh-100">
+
+        <div class="bg-light p-5 ">
+
+        </div>
+            
+        <div class="d-flex flex-column gap-2">
+            <!-- NAVBAR-->
+            <div class="navbar navbar-expand-lg navbar-light bg-light d-flex p-3 min-vw-100">
+
+                @Html.ActionLink(
+                    "Application name",
+                    "Index",
+                    "Home",
+                    new { area = "" },
+                    new { @class = "navbar-brand mb-3" }
+                )
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <main class="flex-grow-1">
+                @RenderBody()
+                <hr />
+            </main>
+
+        </div>
+
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

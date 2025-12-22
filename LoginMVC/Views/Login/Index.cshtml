@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<div class="container-fluid">
+    <div class="row min-vh-100 ">
+        <!-- Left side - Login Form -->
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white">
+            <div class="w-100 d-flex flex-column gap-4 mx-auto" style="max-width:500px">
+                <!-- App Logo -->
+                <div class="d-flex align-items-center gap-3">
+                    <div class="bg-dark rounded-3 d-flex align-items-center justify-content-center shadow" style="width: 48px; height: 48px;">
+                        <span class="text-white fs-5 fw-bold">M</span>      
+                    </div>
+                    <p class="fs-5 fw-semibold text-dark mb-0">My App</p>
+                </div>
+                <!-- Header -->
+                <div class="d-flex flex-column gap-2">
+                    <h1 class="display-4 fw-bold text-dark mb-0">Welcome Back</h1>  
+                    <p class="text-muted small mb-0">Sign in to your account to continue your journey.</p>
+                </div>
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="d-flex flex-column gap-3">
+                        <div class="form-floating">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" autocomplete="username" style="height: 56px;" />
+                            <label for="username" class="small">Username</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" autocomplete="current-password" style="height: 56px;" />
+                            <label for="password" class=" small">Password</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe">
+                                <label class="form-check-label small fw-medium" for="rememberMe">
+                                    Remember Me
+                                </label>
+                            </div>
+                            <a href="#" class="text-muted small fw-medium text-decoration-none">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 fw-semibold shadow" style="height: 56px;">Sign In</button>
+                    </div>
+
+                }
+                <p class="text-center text-muted small mb-0">
+                    Don't have an account?
+                    <a href="#" class="text-dark fw-semibold text-decoration-none">Sign up</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-6 bg-dark d-none d-lg-block">
+        </div>
+    </div>
+</div>
