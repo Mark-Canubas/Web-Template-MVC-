@@ -1,1 +1,9 @@
-﻿
+﻿#sidebarMenu {
+    transition: margin-left 0.5s ease-in-out;
+}
+
+    #sidebarMenu.hidden {
+        margin-left: -300px;
+    }
+
+
