@@ -1,9 +1,12 @@
-﻿#sidebarMenu {
-    transition: margin-left 0.5s ease-in-out;
+﻿/* site.css */
+#sidebarMenu {
+    transition: width 0.5s ease-in-out;
+    width: 30vw;
+    overflow: hidden;
+
 }
 
-    #sidebarMenu.hidden {
-        margin-left: -300px;
-    }
-
+#sidebarMenu.hidden {
+    width: 0;
+}
 
