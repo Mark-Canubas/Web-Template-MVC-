@@ -1,56 +1,53 @@
-﻿using System;
+﻿using LoginMVC.Models;
+using LoginMVC.Models.Dtos;
+using LoginMVC.Services;
+using LoginMVC.Services.Api;
+using LoginMVC.Services.Auth;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using LoginMVC.Models;
 
 namespace LoginMVC.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        private AuthService Auth => new AuthService(new SecApiClient(), new SessionService(Session));
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        // POST: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(UserModel model)
+        public async Task<ActionResult> Index(UserModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
             {
-                if (!string.IsNullOrWhiteSpace(model.Username) && !string.IsNullOrWhiteSpace(model.Password))
-                {
-                    Session["Username"] = model.Username;
-                    Session["IsAuthenticated"] = true;
+                await Auth.LoginAsync(new UserModel { Username = model.Username, Password = model.Password });
 
-                    if (model.RememberMe)
-                    {
-                        Session.Timeout = 60;
-                    }
-                    else
-                    {
-                        Session.Timeout = 20;
-                    }
+                var user = await Auth.GetUserProfileAsync();
 
-                    return RedirectToAction("Index", "Home");
-                }
+                System.Diagnostics.Debug.WriteLine(user as UserDto);
 
-                ModelState.AddModelError("", "Invalid username or password.");
+
+                return RedirectToAction("Index", "Home");
             }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.TraceWarning("Login failed for '{0}'. Error: {1}", model.Username, ex);
 
-            return View(model);
-        }
-
-        // GET: Logout
-        public ActionResult Logout()
-        {
-            Session.Clear();
-            Session.Abandon();
-            return RedirectToAction("Index", "Login");
+                ModelState.AddModelError("", ex.Message);
+                return View(model);
+            }
         }
     }
 }
