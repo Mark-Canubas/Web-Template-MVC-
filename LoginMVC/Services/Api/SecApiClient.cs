@@ -62,7 +62,6 @@ namespace LoginMVC.Services.Api
 
                     if (!resp.IsSuccessStatusCode)
                     {
-                        // log raw error (don't crash page)
                         System.Diagnostics.Trace.TraceWarning("Login API error ({0}): {1}", (int)resp.StatusCode, respJson);
 
                         var msg = TryExtractApiMessage(respJson);

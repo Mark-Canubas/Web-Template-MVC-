@@ -36,8 +36,8 @@ namespace LoginMVC.Controllers
 
                 var user = await Auth.GetUserProfileAsync();
 
-                System.Diagnostics.Debug.WriteLine(user as UserDto);
 
+                System.Diagnostics.Trace.TraceInformation("/Auth/me user: {0}", JsonConvert.SerializeObject(user));
 
                 return RedirectToAction("Index", "Home");
             }
@@ -48,6 +48,26 @@ namespace LoginMVC.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout() { 
+
+            Auth.Logout();
+
+            if (Session != null)
+            {
+                Session.Clear();
+                Session.Abandon();
+            }
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+            Response.AppendHeader("Pragma", "no-cache");
+
+            return RedirectToAction("Index", "Login");
         }
     }
 }

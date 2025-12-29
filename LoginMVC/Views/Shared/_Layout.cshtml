@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -24,209 +27,219 @@
             <div class="flex-grow-1 px-3" style=" overflow-y: auto; overflow-x:hidden">
                 <ul class="nav flex-column gap-2">
 
-                    <li class="nav-item">
-                        <button type="button"
-                                onclick="location.href='@Url.Action("Index", "Home")'"
-                                class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2">
-                            <i class="bi bi-speedometer2 fs-5"></i>
-                            <span class="flex-grow-1">Dashboard</span>
-                        </button>
-                    </li>
+                    <!-- Accordion Wrapper -->
+                    <div id="accordionMenu" class="d-flex flex-column gap-2">
 
-                    <li class="nav-item">
-                        <button type="button"
-                                class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#dropdownProductsMenu"
-                                aria-expanded="false"
-                                aria-controls="dropdownProductsMenu">
-                            <i class="bi bi-box-seam fs-5"></i>
-                            <span class="flex-grow-1">Products</span>
-                            <i class="bi bi-chevron-down ms-auto"></i>
-                        </button>
-                        <div class="collapse" id="dropdownProductsMenu">
-                            <ul class="list-unstyled mb-0 border rounded text-truncate">
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-list-ul fs-6"></i>
-                                        <span class="flex-grow-1">All Products</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-plus-circle fs-6"></i>
-                                        <span class="flex-grow-1">Add Product</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-tags fs-6"></i>
-                                        <span class="flex-grow-1">Categories</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button"
-                                class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#dropdownOrdersMenu"
-                                aria-expanded="false"
-                                aria-controls="dropdownOrdersMenu">
-                            <i class="bi bi-cart fs-5"></i>
-                            <span class="flex-grow-1">Orders</span>
-                            <i class="bi bi-chevron-down ms-auto"></i>
-                        </button>
-                        <div class="collapse" id="dropdownOrdersMenu">
-                            <ul class="list-unstyled mb-0 border rounded">
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-list-check fs-6"></i>
-                                        <span class="flex-grow-1">All Orders</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-clock-history fs-6"></i>
-                                        <span class="flex-grow-1">Pending</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-check-circle fs-6"></i>
-                                        <span class="flex-grow-1">Completed</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                        <li class="nav-item">
+                            <button type="button"
+                                    onclick="location.href='@Url.Action("Index", "Home")'"
+                                    class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2">
+                                <i class="bi bi-speedometer2 fs-5"></i>
+                                <span class="flex-grow-1">Dashboard</span>
+                            </button>
+                        </li>
 
-                    <li class="nav-item">
-                        <button type="button"
-                                class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2">
-                            <i class="bi bi-people fs-5"></i>
-                            <span class="flex-grow-1">Customers</span>
-                        </button>
-                    </li>
 
-                    <li class="nav-item">
-                        <button type="button"
-                                class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#dropdownReportsMenu"
-                                aria-expanded="false"
-                                aria-controls="dropdownReportsMenu">
-                            <i class="bi bi-graph-up fs-5"></i>
-                            <span class="flex-grow-1">Reports</span>
-                            <i class="bi bi-chevron-down ms-auto"></i>
-                        </button>
-                        <div class="collapse" id="dropdownReportsMenu">
-                            <ul class="list-unstyled mb-0 border rounded text-truncate">
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-bar-chart fs-6"></i>
-                                        <span class="flex-grow-1">Sales Report</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-pie-chart fs-6"></i>
-                                        <span class="flex-grow-1">Analytics</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-cash-stack fs-6"></i>
-                                        <span class="flex-grow-1">Revenue</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                        <li class="nav-item">
+                            <button type="button"
+                                    class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#dropdownProductsMenu"
+                                    aria-expanded="false"
+                                    aria-controls="dropdownProductsMenu">
+                                <i class="bi bi-box-seam fs-5"></i>
+                                <span class="flex-grow-1">Products</span>
+                                <i class="bi bi-chevron-down ms-auto"></i>
+                            </button>
+                            <div class="collapse" id="dropdownProductsMenu" data-bs-parent="#accordionMenu">
+                                <ul class="list-unstyled mb-0 border rounded text-truncate">
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-list-ul fs-6"></i>
+                                            <span class="flex-grow-1">All Products</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-plus-circle fs-6"></i>
+                                            <span class="flex-grow-1">Add Product</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-tags fs-6"></i>
+                                            <span class="flex-grow-1">Categories</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
-                    <li class="nav-item">
-                        <button type="button"
-                                class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#dropdownSettingsMenu"
-                                aria-expanded="false"
-                                aria-controls="dropdownSettingsMenu">
-                            <i class="bi bi-gear fs-5"></i>
-                            <span class="flex-grow-1">Settings</span>
-                            <i class="bi bi-chevron-down ms-auto"></i>
-                        </button>
-                        <div class="collapse" id="dropdownSettingsMenu">
-                            <ul class="list-unstyled mb-0 border rounded text-truncate">
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-person fs-6"></i>
-                                        <span class="flex-grow-1">My Profile</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-shield-lock fs-6"></i>
-                                        <span class="flex-grow-1">Security</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button"
-                                            class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
-                                        <i class="bi bi-bell fs-6"></i>
-                                        <span class="flex-grow-1">Notifications</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                        <li class="nav-item">
+                            <button type="button"
+                                    class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#dropdownOrdersMenu"
+                                    aria-expanded="false"
+                                    aria-controls="dropdownOrdersMenu">
+                                <i class="bi bi-cart fs-5"></i>
+                                <span class="flex-grow-1">Orders</span>
+                                <i class="bi bi-chevron-down ms-auto"></i>
+                            </button>
+                            <div class="collapse" id="dropdownOrdersMenu" data-bs-parent="#accordionMenu">
+                                <ul class="list-unstyled mb-0 border rounded">
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-list-check fs-6"></i>
+                                            <span class="flex-grow-1">All Orders</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-clock-history fs-6"></i>
+                                            <span class="flex-grow-1">Pending</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-check-circle fs-6"></i>
+                                            <span class="flex-grow-1">Completed</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button type="button"
+                                    class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#dropdownReportsMenu"
+                                    aria-expanded="false"
+                                    aria-controls="dropdownReportsMenu">
+                                <i class="bi bi-graph-up fs-5"></i>
+                                <span class="flex-grow-1">Reports</span>
+                                <i class="bi bi-chevron-down ms-auto"></i>
+                            </button>
+                            <div class="collapse" id="dropdownReportsMenu" data-bs-parent="#accordionMenu">
+                                <ul class="list-unstyled mb-0 border rounded text-truncate">
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-bar-chart fs-6"></i>
+                                            <span class="flex-grow-1">Sales Report</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-pie-chart fs-6"></i>
+                                            <span class="flex-grow-1">Analytics</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-cash-stack fs-6"></i>
+                                            <span class="flex-grow-1">Revenue</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button type="button"
+                                    class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#dropdownSettingsMenu"
+                                    aria-expanded="false"
+                                    aria-controls="dropdownSettingsMenu">
+                                <i class="bi bi-gear fs-5"></i>
+                                <span class="flex-grow-1">Settings</span>
+                                <i class="bi bi-chevron-down ms-auto"></i>
+                            </button>
+                            <div class="collapse" id="dropdownSettingsMenu" data-bs-parent="#accordionMenu">
+                                <ul class="list-unstyled mb-0 border rounded text-truncate">
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-person fs-6"></i>
+                                            <span class="flex-grow-1">My Profile</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 border-bottom rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-shield-lock fs-6"></i>
+                                            <span class="flex-grow-1">Security</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn btn-light border-0 rounded-0 d-flex align-items-center gap-2 w-100 text-start px-3 py-2">
+                                            <i class="bi bi-bell fs-6"></i>
+                                            <span class="flex-grow-1">Notifications</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button type="button"
+                                    class="btn btn-light border d-flex align-items-center gap-2 w-100 text-start p-2">
+                                <i class="bi bi-people fs-5"></i>
+                                <span class="flex-grow-1">Customers</span>
+                            </button>
+                        </li>
+                    </div>
                 </ul>
-            </div>
+        </div>
 
-            <!-- Sidebar Footer -->
-            <div class="border-top p-2 mt-auto bg-light" style="flex-shrink: 0;">
-                <button type="button"
+        <!-- Sidebar Footer -->
+        <div class="border-top p-2 mt-auto bg-light" style="flex-shrink: 0;">
+            @using (Html.BeginForm("Logout", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit"
                         class="btn btn-light border-0 rounded-0 d-flex justify-content-center align-items-center gap-2 w-100">
                     <i class="bi bi-box-arrow-right fs-5"></i>
                     <span>Logout</span>
                 </button>
-            </div>
-
+            }
         </div>
 
+    </div>
 
-        <div class="d-flex flex-column flex-grow-1 overflow-hidden">
 
-            <!-- Header -->
-            <div class="d-flex gap-2 align-items-center p-3 bg-white border-bottom">
+    <div class="d-flex flex-column flex-grow-1 overflow-hidden">
 
-                <button type="button"
-                        class="btn btn-light px-2 py-1"
-                        onclick="toggleSidebar()">
-                    <i class="bi bi-list fs-4"></i>
-                </button>
+        <!-- Header -->
+        <div class="d-flex gap-2 align-items-center p-3 bg-white border-bottom">
 
-                <a class="navbar-brand mb-0" href="#">
-                    @ViewBag.Title
-                </a>
-            </div>
+            <button type="button"
+                    class="btn btn-light px-2 py-1"
+                    onclick="toggleSidebar()">
+                <i class="bi bi-list fs-4"></i>
+            </button>
 
-            <!-- Page Content -->
-            <main class="flex-grow-1 overflow-auto p-3">
-                @RenderBody()
-            </main>
+            <a class="navbar-brand mb-0" href="#">
+                @ViewBag.Title
+            </a>
         </div>
+
+        <!-- Page Content -->
+        <main class="flex-grow-1 overflow-auto p-3">
+            @RenderBody()
+        </main>
+    </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

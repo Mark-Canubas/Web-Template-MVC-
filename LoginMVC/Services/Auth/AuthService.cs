@@ -60,8 +60,7 @@ namespace LoginMVC.Services.Auth
 
         public void Logout()
         {
-            _session.Remove(TokenKey);
-            _session.Remove(UserKey);
+            _session.Clear();
         }
     }
 }

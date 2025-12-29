@@ -31,3 +31,23 @@
         </section>
     </div>
 </main>
+
+@section scripts {
+    <script>
+        // Prevent browser back button after logout
+        (function() {
+            // Disable browser caching for this page
+            window.history.forward();
+            
+            function preventBackButton() {
+                window.history.forward();
+            }
+            
+            setTimeout(function() {
+                preventBackButton();
+            }, 0);
+            
+            window.onunload = function() { null };
+        })();
+    </script>
+}
