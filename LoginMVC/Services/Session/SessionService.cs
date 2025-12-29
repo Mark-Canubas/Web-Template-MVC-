@@ -9,7 +9,7 @@ namespace LoginMVC.Services
         T Get<T>(string key);
         bool TryGet<T>(string key, out T value);
         void Remove(string key);
-        void Clear();
+        void Clear();           
     }
 
     public sealed class SessionService : ISessionService

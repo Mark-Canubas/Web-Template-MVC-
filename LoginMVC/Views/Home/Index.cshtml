@@ -1,53 +1,78 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Dashboard";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<div class="d-flex flex-column gap-3">
+    <!-- Header card -->
+    <div class="bg-white border rounded p-4">
+        <h1 class="h3 fw-bold mb-2">Dashboard</h1>
+        <p class="mb-0 text-muted">Welcome to the dashboard</p>
     </div>
-</main>
+    
+    <!-- Stats cards -->
+    <div class="row g-3">
+        <!-- Users Card -->
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="bg-white border rounded p-4 h-100">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <div class="h4 fw-bold mb-1">1,234</div>
+                        <div class="fw-semibold">Users</div>
+                        <div class="text-muted small">Active users in the last 24 hours</div>
+                    </div>
+                    <div class="ms-3">
+                        <i class="bi bi-people fs-1 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-@section scripts {
-    <script>
-        // Prevent browser back button after logout
-        (function() {
-            // Disable browser caching for this page
-            window.history.forward();
-            
-            function preventBackButton() {
-                window.history.forward();
-            }
-            
-            setTimeout(function() {
-                preventBackButton();
-            }, 0);
-            
-            window.onunload = function() { null };
-        })();
-    </script>
-}
+        <!-- Sales Card -->
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="bg-white border rounded p-4 h-100">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <div class="h4 fw-bold mb-1">$12,345</div>
+                        <div class="fw-semibold">Sales</div>
+                        <div class="text-muted small">Total sales in the last 24 hours</div>
+                    </div>
+                    <div class="ms-3">
+                        <i class="bi bi-cart fs-1 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visits Card -->
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="bg-white border rounded p-4 h-100">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <div class="h4 fw-bold mb-1">23,456</div>
+                        <div class="fw-semibold">Visits</div>
+                        <div class="text-muted small">Website visits in the last 24 hours</div>
+                    </div>
+                    <div class="ms-3">
+                        <i class="bi bi-graph-up fs-1 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Card -->
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="bg-white border rounded p-4 h-100">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <div class="h4 fw-bold mb-1">567</div>
+                        <div class="fw-semibold">Orders</div>
+                        <div class="text-muted small">New orders in the last 24 hours</div>
+                    </div>
+                    <div class="ms-3">
+                        <i class="bi bi-box fs-1 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

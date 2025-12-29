@@ -1,23 +1,12 @@
 ﻿/* site.css */
 #sidebarMenu {
     transition: width 0.5s ease-in-out;
-    width: 30vw;
+    width: 17vw;
     overflow: hidden;
     flex-shrink: 0;
 }
 
 #sidebarMenu.hidden {
     width: 0;
-}
-
-.sidebar-scroll {
-    flex-grow: 1;
-    min-height: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.sidebar-content {
-    margin: 0rem;
 }
 
